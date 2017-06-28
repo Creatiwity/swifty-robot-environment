@@ -11,7 +11,7 @@
 
 source .profile
 
-export APPROVED_PRS_URL=http://pick.ly/swiftyrobot/util/approved_prs.php
+export APPROVED_PRS_URL=https://raw.githubusercontent.com/Creatiwity/swifty-robot-environment/master/pr.txt
 export GIT_URL_SWIFT=https://github.com/apple/swift.git
 
 function check_pr_mergeability {
