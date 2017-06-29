@@ -15,6 +15,8 @@ export SWIFT_INSTALLATION_PATH="`realpath ./swift-install`"
 
 mkdir -p $SWIFT_INSTALLATION_PATH
 
+cp -n $SWIFT_ANDROID_SOURCE/swift/stdlib/public/Platform/ifaddrs.h $NDK/platforms/android-21/arch-arm/usr/include/
+
 pushd $SWIFT_ANDROID_SOURCE/swift
 	utils/build-script \
 		-R \
@@ -35,6 +37,8 @@ pushd $SWIFT_ANDROID_SOURCE/swift
 		'--swift-install-components=autolink-driver;compiler;clang-builtin-headers;stdlib;swift-remote-mirror;sdk-overlay;dev' \
 		--install-prefix=/usr --install-destdir=$SWIFT_INSTALLATION_PATH
 popd
+
+rm -f $NDK/platforms/android-21/arch-arm/usr/include/ifaddrs.h
 
 export SWIFT_ANDROID_BUILDPATH="$SWIFT_ANDROID_SOURCE/build/Ninja-ReleaseAssert"
 echo 'export SWIFT_ANDROID_BUILDPATH="'$SWIFT_ANDROID_BUILDPATH'"' >> .profile
